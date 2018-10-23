@@ -1,0 +1,25 @@
+{
+  "name": "contract_may",
+  "version": "1.0.0",
+  "description": "game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abduraim/contract_may.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "abduraim.t",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abduraim/contract_may/issues"
+  },
+  "homepage": "https://github.com/abduraim/contract_may#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
