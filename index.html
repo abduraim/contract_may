@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" name="message" id="message">
+<input type="submit" value="ok" id="submit">
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io('http://localhost:3000/');
+
+    document.querySelector('#submit').addEventListener('click', event => {
+        event.preventDefault();
+        var text = document.querySelector('#message').value;
+        socket.emit('new message', text);
+    });
+
+    socket.on('send message', function (data) {
+        console.log(data);
+    })
+</script>
+</body>
+</html>
