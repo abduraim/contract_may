@@ -1,24 +1,13 @@
 var app = require('express')();
+var express = require('express');
 var http = require('http').Server(app);
-var io = require('socket.io')(http)
+var io = require('socket.io')(http);
+var game = require('./server/game');
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
+app.use(express.static('client'));
 
 http.listen(3000, function () {
-    console.log('listening on 3000 port');
+    console.log('Listening on port 3000');
 });
 
-io.on('connection', function (socket) {
-    console.log('connected new client!');
-    socket.on('new message', function (data) {
-        console.log(data);
-        io.emit('send message', data);
-        for (var i = 0; i < 10; i++) {
-            console.log(i);
-            io.emit('send message', i);
-        }
-    });
-});
-
+game.init(io);
